@@ -24,9 +24,14 @@ $division = new Division();
 class Parser
 {
     /**
+     * Calculates the result of a mathematical expression.
+     *
+     * @param string $expression The infix mathematical expression to be calculated.
+     * @return float|int|string The result of evaluating the expression.
      * @throws Exception
      */
-    function calculate($expression)
+    
+    function calculate(string $expression): float|int|string
     {
         // Remove whitespace from the expression
         $expression = str_replace(' ', '', $expression);
@@ -96,9 +101,15 @@ class Parser
 // Helper function to perform operations
 
     /**
-     * @throws Exception
+     * Performs a mathematical operation based on the given operator.
+     *
+     * @param string $operator The operator indicating the operation to be performed.
+     * @param float|int $operand1 The first operand for the operation.
+     * @param float|int $operand2 The second operand for the operation.
+     * @return float|int The result of the operation.
+     * @throws Exception If the operator is not valid.
      */
-    function calculateOperation($operator, $operand1, $operand2)
+    function calculateOperation(string $operator, float|int $operand1, float|int $operand2): float|int
     {
         global $addition, $soustraction, $multiplication, $division;
         return match ($operator) {
